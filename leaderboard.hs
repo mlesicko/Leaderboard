@@ -61,7 +61,19 @@ nameChecks = [
              ((>3) . length . filter isVowel,
                 "Your name contains too many vowels"),
              (containsASwear,
-                "No swearing!")
+                "No swearing!"),
+             (anyIsInfixIgnoreCase (map show [1900..2017]),
+                "Your name cannot contain someone's birth year"),
+             (isInfixOf "33",
+                "That name is too Masonic"),
+             (isInfixOf "666",
+                "That name is too Satanic"),
+             (isInfixOf "420",
+                "That name is prohibited under Federal Law"),
+             (any isMark,
+                "This is America"),
+             (isIgnoreCaseOrdered,
+                "The letters of your name may not be in alphabetical order")
              ]
 
 isInfixIgnoreCase :: String -> String -> Bool
@@ -80,3 +92,7 @@ swears = ["fuck", "shit", "ass", "butt", "cunt", "damn", "hell"
 containsASwear :: String -> Bool
 containsASwear s = not . null $ intersect swears (swearFiltered s)
   where swearFiltered = (\x -> map ($x) (map (\swear -> filter (`elem` swear)) swears))
+
+isIgnoreCaseOrdered :: String -> Bool
+isIgnoreCaseOrdered s = lowerLetters == sort lowerLetters
+  where lowerLetters = map toLower . filter isAlpha $ s
