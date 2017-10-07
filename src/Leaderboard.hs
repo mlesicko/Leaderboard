@@ -87,7 +87,7 @@ anyIsInfixIgnoreCase :: [String] -> String -> Bool
 anyIsInfixIgnoreCase xs s = any (\x -> isInfixIgnoreCase x s) xs
 
 isVowel :: Char -> Bool
-isVowel c = elem c ['a','e','i','o','u']
+isVowel c = elem (toLower c) ['a','e','i','o','u']
 
 swears :: [String]
 swears = ["fuck", "shit", "ass", "butt", "cunt", "damn", "hell"
