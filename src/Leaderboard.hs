@@ -4,13 +4,24 @@ module Leaderboard
 
 import Data.Char
 import Data.List
+import System.Posix.Unistd
 
 leaderboard = do
-    putStrLn "Congratulations! You got the high score. Enter your name for the leaderboard."
+    printCongrats1
     nameCheckLoop
 
 
 data NameError = Success String | Failure String deriving (Show)
+
+printCongrats1 :: IO ()
+printCongrats1 = putStrLn $ "\n\n" 
+                 ++replicate 40 '*'
+                 ++ "\nCongratulations! You got the high score."
+                 ++ "\n  Enter your name for the leaderboard."
+                 ++ "\n" ++ replicate 40 '*'
+
+printCongrats2 :: IO ()
+printCongrats2 = putStrLn "\n\nNow everyone will know you're the best."
 
 printLeaderBoard :: String -> IO ()
 printLeaderBoard s = putStrLn $ "\n\n " ++ s 
@@ -18,7 +29,7 @@ printLeaderBoard s = putStrLn $ "\n\n " ++ s
                  ++ " --- 218349000"
                  ++ "\n adeV32&_ --- 194682000"
                  ++ "\n aCHlr-92 --- 181772000"
-                 ++ "\n 15%einNp --- 180948000"
+                 ++ "\n 55%einNp --- 180948000"
                  ++ "\n d0G3zzz( --- 178225000"
 
 checkName :: String -> NameError
@@ -34,7 +45,10 @@ nameCheckLoop :: IO ()
 nameCheckLoop = do
   name <- getLine
   let nameCheck = checkName name
-  case nameCheck of Success name -> printLeaderBoard name
+  case nameCheck of Success name -> do
+                      printCongrats2
+                      usleep 2000000
+                      printLeaderBoard name
                     Failure message -> do
                       putStrLn message
                       nameCheckLoop
@@ -66,6 +80,8 @@ nameChecks = [
                "Your name must contain a capital letter"),
              (not . any isDigit,
                "Your name must have at least one number"),
+             (('1' `elem`),
+                "Your name must not contain 1"),
              ((>) 2 . length . filter isDigit,
                "Your name must have at least two numbers"),
              (isInfixOf "33",
@@ -84,6 +100,8 @@ nameChecks = [
                "Your name must not contain #"),
              (('$' `elem`),
                "Your name must not contain $"),
+             (('!' `elem`),
+               "Your name must not contain !"),
              ((' ' `elem`),
                "Your name must not contain spaces"),
              ((>3) . length . filter isVowel,
