@@ -46,6 +46,14 @@ nameChecks = [
                 "No swearing!"),
              (anyIsInfixIgnoreCase ["mickey","mouse"],
                 "That name is under trademark by the Walt Disney Corporation"),
+             (anyIsInfixIgnoreCase naughtyWords,
+                "That name is not family friendly"),
+             (anyIsInfixIgnoreCase presidents,
+                "For reasons of National Security, your name may not contain the name of any current of former U.S. President"),
+             (anyIsInfixIgnoreCase colors,
+                "That's racist!"),
+             (anyIsInfixIgnoreCase emoWords,
+                "That name is too emo"),
              (isUpper . (!!0),
                "Your name must not begin with a capital letter"),
              (not . any isUpper,
@@ -60,6 +68,8 @@ nameChecks = [
                 "That name is too Satanic"),
              (isInfixOf "420",
                 "That name is prohibited under Federal Law"),
+             (anyIsInfixIgnoreCase (map show [1900..2017]),
+                "Your name cannot contain someone's birth year"),
              (all isAlphaNum,
                "Your name must contain a special character"),
              (('@' `elem`),
@@ -72,12 +82,10 @@ nameChecks = [
                "Your name must not contain spaces"),
              ((>3) . length . filter isVowel,
                 "Your name contains too many vowels"),
-             (anyIsInfixIgnoreCase (map show [1900..2017]),
-                "Your name cannot contain someone's birth year"),
              (any isMark,
                 "This is America"),
-             (isIgnoreCaseOrdered,
-                "The letters of your name may not be in alphabetical order")
+             (not . isIgnoreCaseOrdered,
+                "The letters of your name must be in alphabetical order")
              ]
 
 isInfixIgnoreCase :: String -> String -> Bool
@@ -90,8 +98,29 @@ isVowel :: Char -> Bool
 isVowel c = elem (toLower c) ['a','e','i','o','u']
 
 swears :: [String]
-swears = ["fuck", "shit", "ass", "butt", "cunt", "damn", "hell"
-         ,"balls","tits"]
+swears = ["fuck", "shit", "ass", "damn", "hell"]
+
+naughtyWords :: [String]
+naughtyWords = ["boobs","penis","ball","tit","butt","dong","69"
+               ,"sex", "cunt"]
+
+presidents :: [String]
+presidents = ["george", "john", "thomas", "james", "andrew"
+            ,"martin", "william", "zachary", "millard"
+            ,"franklin","abraham","ulysses","rutherford"
+            ,"chester","grover","benjamin","theodore"
+            ,"woodrow","warren","calvin","herbert"
+            ,"harry","dwight","lyndon","richard"
+            ,"gerald","ronald","barack"
+            ,"dick","bill","jimmy","abe"
+            ]
+
+colors :: [String]
+colors = ["black","white","red","yellow","brown","blue"
+         ,"green","orange"]
+
+emoWords :: [String]
+emoWords = ["xxx","random","doom","spork"]
 
 containsASwear :: String -> Bool
 containsASwear s = not . null $ intersect swears swearFiltered
