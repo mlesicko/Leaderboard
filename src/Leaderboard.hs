@@ -13,7 +13,13 @@ leaderboard = do
 data NameError = Success String | Failure String deriving (Show)
 
 printLeaderBoard :: String -> IO ()
-printLeaderBoard = putStrLn
+printLeaderBoard s = putStrLn $ "\n\n " ++ s 
+                 ++ (replicate (8 - length s) ' ')
+                 ++ " --- 218349000"
+                 ++ "\n adeV32&_ --- 194682000"
+                 ++ "\n aCHlr-92 --- 181772000"
+                 ++ "\n 15%einNp --- 180948000"
+                 ++ "\n d0G3zzz( --- 178225000"
 
 checkName :: String -> NameError
 checkName name
@@ -84,6 +90,10 @@ nameChecks = [
                 "Your name contains too many vowels"),
              (any isMark,
                 "This is America"),
+             ((>8) . length,
+                "Your name is too long"),
+             ((<8) . length,
+                "Your name is too short"),
              (not . isIgnoreCaseOrdered,
                 "The letters of your name must be in alphabetical order")
              ]
