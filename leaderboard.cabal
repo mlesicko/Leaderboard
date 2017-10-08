@@ -18,6 +18,7 @@ library
   exposed-modules:     Lib
                      , Leaderboard
   build-depends:       base >= 4.7 && < 5
+                     , unix
   default-language:    Haskell2010
 
 executable leaderboard-exe
@@ -26,6 +27,7 @@ executable leaderboard-exe
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , leaderboard
+                     , unix
   default-language:    Haskell2010
 
 test-suite leaderboard-test
@@ -34,6 +36,7 @@ test-suite leaderboard-test
   main-is:             Spec.hs
   build-depends:       base
                      , leaderboard
+                     , unix
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
