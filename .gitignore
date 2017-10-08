@@ -1,5 +1,6 @@
 .lein-repl-history
 figwheel_server.log
+target/
 resources/public/js/compiled
 *.swp
 *.swo
