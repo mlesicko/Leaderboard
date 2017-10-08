@@ -52,8 +52,8 @@ return "Your name must contain at least one number.";
 if((cljs.core.count.call(null,cljs.core.filter.call(null,cuerdas.core.digits_QMARK_,user_name)) < (2))){
 return "Your name must contain at least two numbers.";
 } else {
-if(cljs.core.truth_(cljs.core.some.call(null,(function (p1__30576_SHARP_){
-return clojure.string.includes_QMARK_.call(null,user_name,p1__30576_SHARP_);
+if(cljs.core.truth_(cljs.core.some.call(null,(function (p1__30799_SHARP_){
+return clojure.string.includes_QMARK_.call(null,user_name,p1__30799_SHARP_);
 }),cljs.core.map.call(null,cljs.core.str,cljs.core.range.call(null,(1900),(2017)))))){
 return "Your name cannot contain someone's birth year.";
 } else {
@@ -140,7 +140,7 @@ var swear_set = cljs.core.into.call(null,cljs.core.PersistentHashSet.EMPTY,swear
 return cljs.core._EQ_.call(null,cljs.core.reverse.call(null,cljs.core.into.call(null,cljs.core.List.EMPTY,swear)),cljs.core.filter.call(null,swear_set,user_name));
 });
 leaderboard.test_name.check_for_swears = (function leaderboard$test_name$check_for_swears(user_name,swears){
-return cljs.core.some.call(null,leaderboard.test_name.check_for_swear,swears);
+return cljs.core.some.call(null,cljs.core.partial.call(null,leaderboard.test_name.check_for_swear,user_name),swears);
 });
 leaderboard.test_name.digits = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 10, ["9",null,"3",null,"4",null,"8",null,"7",null,"5",null,"6",null,"1",null,"0",null,"2",null], null), null);
 leaderboard.test_name.vowels = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 5, ["e",null,"a",null,"i",null,"u",null,"o",null], null), null);
@@ -151,4 +151,4 @@ leaderboard.test_name.emo = new cljs.core.PersistentHashSet(null, new cljs.core.
 leaderboard.test_name.colors = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 8, ["blue",null,"white",null,"orange",null,"yellow",null,"green",null,"red",null,"brown",null,"black",null], null), null);
 leaderboard.test_name.presidents = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 32, ["abraham",null,"james",null,"franklin",null,"bill",null,"warren",null,"harry",null,"benjamin",null,"dick",null,"gerald",null,"ulysses",null,"richard",null,"john",null,"jimmy",null,"william",null,"chester",null,"dwight",null,"abe",null,"grover",null,"herbert",null,"zachary",null,"millard",null,"theodore",null,"lyndon",null,"woodrow",null,"thomas",null,"george",null,"andrew",null,"barack",null,"rutherford",null,"martin",null,"calvin",null,"ronald",null], null), null);
 
-//# sourceMappingURL=test_name.js.map?rel=1507442969559
+//# sourceMappingURL=test_name.js.map?rel=1507445075448

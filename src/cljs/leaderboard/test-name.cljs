@@ -64,7 +64,7 @@
 
 (defn check-for-swears [user-name swears]
   (some
-    check-for-swear
+    (partial check-for-swear user-name)
     swears))
 
 (def digits
