@@ -19,7 +19,7 @@
         db)
       (update db
               :tetris-height
-              #(+ % 10)))))
+              + 25))))
 
 (re-frame/reg-event-db
   :stop-ticking

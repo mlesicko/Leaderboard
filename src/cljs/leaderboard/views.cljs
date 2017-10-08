@@ -91,11 +91,7 @@
                 [:tr 
                  [:td "d0G3zzz("]
                  [:td "........."]
-                 [:td "178225000"]]]]
-              [re-com/button
-               :label "Play Again!"
-               :on-click #(re-frame/dispatch [:initialize-db])
-               :style { :margin :auto }]]])
+                 [:td "178225000"]]]]]])
 
 
 (defn main-panel []

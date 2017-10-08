@@ -7,7 +7,7 @@
                  [re-com "2.1.0"]
                  [superstring "2.1.0"]
                  [funcool/cuerdas "2.0.4"]
-                 ]
+                 [com.andrewmcveigh/cljs-time "0.5.0"]]
 
   :plugins [[lein-cljsbuild "1.1.5"]]
 
@@ -22,7 +22,7 @@
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.9.4"]
-                   [re-frisk "0.5.0"]]
+                   [re-frisk "0.5.0"] ]
 
     :plugins      [[lein-figwheel "0.5.13"]]}}
 
