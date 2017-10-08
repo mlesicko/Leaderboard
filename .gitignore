@@ -1,3 +1,5 @@
+.lein-repl-history
+figwheel_server.log
 *.swp
 *.swo
 dist
