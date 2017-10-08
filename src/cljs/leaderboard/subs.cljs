@@ -12,7 +12,22 @@
   (fn [db]
     (:user-name db)))
 
+ (re-frame/reg-sub
+  :typed-name 
+  (fn [db]
+    (:typed-name db)))
+
 (re-frame/reg-sub
   :error-message
   (fn [db]
     (:error-message db)))
+
+(re-frame/reg-sub
+  :mode
+  (fn [db]
+    (:mode db)))
+
+(re-frame/reg-sub
+  :tetris-height
+  (fn [db]
+    (:tetris-height db)))

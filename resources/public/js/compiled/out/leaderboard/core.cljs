@@ -6,7 +6,6 @@
             [leaderboard.views :as views]
             [leaderboard.config :as config]))
 
-
 (defn dev-setup []
   (when config/debug?
     (enable-console-print!)

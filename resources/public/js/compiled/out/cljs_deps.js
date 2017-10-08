@@ -16,7 +16,6 @@ goog.addDependency("../xregexp/xregexp.js", ['cuerdas.vendor.xregexp'], []);
 goog.addDependency("../cuerdas/regexp.js", ['cuerdas.regexp'], ['goog.string', 'cljs.core', 'cuerdas.vendor.xregexp']);
 goog.addDependency("../cuerdas/core.js", ['cuerdas.core'], ['goog.string', 'cljs.core', 'clojure.set', 'clojure.string', 'cljs.reader', 'clojure.walk', 'cuerdas.regexp']);
 goog.addDependency("../leaderboard/test_name.js", ['leaderboard.test_name'], ['cljs.core', 'superstring.core', 'clojure.string', 'cuerdas.core']);
-goog.addDependency("../leaderboard/db.js", ['leaderboard.db'], ['cljs.core']);
 goog.addDependency("../cljsjs/react/development/react.inc.js", ['cljsjs.react'], []);
 goog.addDependency("../cljsjs/create-react-class/development/create-react-class.inc.js", ['cljsjs.create_react_class'], ['cljsjs.react']);
 goog.addDependency("../reagent/interop.js", ['reagent.interop'], ['cljs.core']);
@@ -44,6 +43,7 @@ goog.addDependency("../clojure/data.js", ['clojure.data'], ['cljs.core', 'clojur
 goog.addDependency("../re_frame/std_interceptors.js", ['re_frame.std_interceptors'], ['re_frame.interceptor', 're_frame.registrar', 'cljs.core', 're_frame.utils', 're_frame.loggers', 're_frame.cofx', 'clojure.data', 're_frame.db']);
 goog.addDependency("../re_frame/subs.js", ['re_frame.subs'], ['re_frame.interop', 're_frame.trace', 're_frame.registrar', 'cljs.core', 're_frame.utils', 're_frame.loggers', 're_frame.db']);
 goog.addDependency("../re_frame/core.js", ['re_frame.core'], ['re_frame.interop', 're_frame.interceptor', 're_frame.events', 're_frame.fx', 're_frame.registrar', 'cljs.core', 're_frame.router', 'clojure.set', 're_frame.std_interceptors', 're_frame.loggers', 're_frame.subs', 're_frame.cofx', 're_frame.db']);
+goog.addDependency("../leaderboard/db.js", ['leaderboard.db'], ['cljs.core', 're_frame.core']);
 goog.addDependency("../leaderboard/events.js", ['leaderboard.events'], ['leaderboard.test_name', 'cljs.core', 'leaderboard.db', 're_frame.core']);
 goog.addDependency("../leaderboard/config.js", ['leaderboard.config'], ['cljs.core']);
 goog.addDependency("../leaderboard/subs.js", ['leaderboard.subs'], ['cljs.core', 're_frame.core']);
@@ -76,7 +76,7 @@ goog.addDependency("../re_com/dropdown.js", ['re_com.dropdown'], ['re_com.util',
 goog.addDependency("../re_com/splits.js", ['re_com.splits'], ['re_com.util', 're_com.box', 'reagent.core', 'cljs.core', 're_com.validate']);
 goog.addDependency("../re_com/modal_panel.js", ['re_com.modal_panel'], ['cljs.core', 're_com.validate']);
 goog.addDependency("../re_com/core.js", ['re_com.core'], ['re_com.popover', 're_com.text', 're_com.box', 'cljs.core', 're_com.typeahead', 're_com.tabs', 're_com.alert', 're_com.datepicker', 're_com.input_time', 're_com.buttons', 're_com.tour', 're_com.selection_list', 're_com.dropdown', 're_com.misc', 're_com.splits', 're_com.modal_panel']);
-goog.addDependency("../leaderboard/views.js", ['leaderboard.views'], ['re_com.core', 'cljs.core', 're_frame.core']);
+goog.addDependency("../leaderboard/views.js", ['leaderboard.views'], ['re_com.core', 'reagent.core', 'cljs.core', 're_frame.core']);
 goog.addDependency("../leaderboard/core.js", ['leaderboard.core'], ['leaderboard.events', 'leaderboard.config', 'reagent.core', 'cljs.core', 'leaderboard.subs', 're_frame.core', 'leaderboard.views']);
 goog.addDependency("../cljs/pprint.js", ['cljs.pprint'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer', 'clojure.string']);
 goog.addDependency("../figwheel/client/utils.js", ['figwheel.client.utils'], ['goog.userAgent.product', 'goog.string', 'cljs.core', 'goog.object', 'goog.string.StringBuffer', 'cljs.pprint', 'goog.async.Deferred', 'clojure.string', 'cljs.reader']);

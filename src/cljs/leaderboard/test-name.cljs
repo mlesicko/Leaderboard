@@ -33,7 +33,7 @@
     (check-for-substrings user-name naughty) "That is not family-friendly."
     (check-for-swears user-name swears) "No swearing!"
     (string/upper-case? (first user-name)) "Your name must not begin with a capital letter."
-    (not (some string/upper-case? user-name)) "Your name must contain a capital letter."
+    (not (some string/upper-case? (filter string2/letters?  user-name))) "Your name must contain a capital letter."
     (not (some string2/digits? user-name)) "Your name must contain at least one number."
     (< (count (filter string2/digits? user-name)) 2) "Your name must contain at least two numbers."
     (some #(includes? user-name %) (map str (range 1900 2017))) "Your name cannot contain someone's birth year."
@@ -154,7 +154,7 @@
     "gerald"
     "ronald"
     "barack"
-    ; "donald" ?
+    "donald"
     "dick"
     "bill"
     "jimmy"

@@ -43,7 +43,7 @@ return "No swearing!";
 if(cljs.core.truth_(superstring.core.upper_case_QMARK_.call(null,cljs.core.first.call(null,user_name)))){
 return "Your name must not begin with a capital letter.";
 } else {
-if(cljs.core.not.call(null,cljs.core.some.call(null,superstring.core.upper_case_QMARK_,user_name))){
+if(cljs.core.not.call(null,cljs.core.some.call(null,superstring.core.upper_case_QMARK_,cljs.core.filter.call(null,cuerdas.core.letters_QMARK_,user_name)))){
 return "Your name must contain a capital letter.";
 } else {
 if(cljs.core.not.call(null,cljs.core.some.call(null,cuerdas.core.digits_QMARK_,user_name))){
@@ -52,8 +52,8 @@ return "Your name must contain at least one number.";
 if((cljs.core.count.call(null,cljs.core.filter.call(null,cuerdas.core.digits_QMARK_,user_name)) < (2))){
 return "Your name must contain at least two numbers.";
 } else {
-if(cljs.core.truth_(cljs.core.some.call(null,(function (p1__30799_SHARP_){
-return clojure.string.includes_QMARK_.call(null,user_name,p1__30799_SHARP_);
+if(cljs.core.truth_(cljs.core.some.call(null,(function (p1__31075_SHARP_){
+return clojure.string.includes_QMARK_.call(null,user_name,p1__31075_SHARP_);
 }),cljs.core.map.call(null,cljs.core.str,cljs.core.range.call(null,(1900),(2017)))))){
 return "Your name cannot contain someone's birth year.";
 } else {
@@ -149,6 +149,6 @@ leaderboard.test_name.naughty = new cljs.core.PersistentHashSet(null, new cljs.c
 leaderboard.test_name.disney = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, ["mouse",null,"mickey",null], null), null);
 leaderboard.test_name.emo = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 4, ["random",null,"xxx",null,"spork",null,"doom",null], null), null);
 leaderboard.test_name.colors = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 8, ["blue",null,"white",null,"orange",null,"yellow",null,"green",null,"red",null,"brown",null,"black",null], null), null);
-leaderboard.test_name.presidents = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 32, ["abraham",null,"james",null,"franklin",null,"bill",null,"warren",null,"harry",null,"benjamin",null,"dick",null,"gerald",null,"ulysses",null,"richard",null,"john",null,"jimmy",null,"william",null,"chester",null,"dwight",null,"abe",null,"grover",null,"herbert",null,"zachary",null,"millard",null,"theodore",null,"lyndon",null,"woodrow",null,"thomas",null,"george",null,"andrew",null,"barack",null,"rutherford",null,"martin",null,"calvin",null,"ronald",null], null), null);
+leaderboard.test_name.presidents = new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 33, ["abraham",null,"james",null,"franklin",null,"bill",null,"warren",null,"harry",null,"benjamin",null,"dick",null,"gerald",null,"ulysses",null,"richard",null,"john",null,"jimmy",null,"william",null,"chester",null,"dwight",null,"abe",null,"grover",null,"herbert",null,"zachary",null,"millard",null,"theodore",null,"lyndon",null,"woodrow",null,"thomas",null,"george",null,"andrew",null,"donald",null,"barack",null,"rutherford",null,"martin",null,"calvin",null,"ronald",null], null), null);
 
-//# sourceMappingURL=test_name.js.map?rel=1507445075448
+//# sourceMappingURL=test_name.js.map?rel=1507473710711
